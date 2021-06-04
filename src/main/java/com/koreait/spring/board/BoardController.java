@@ -25,6 +25,7 @@ public class BoardController {
     public String detail(BoardDTO param, Model model) {
         BoardDomain data = service.selBoard(param);
         model.addAttribute("data", data);
+        System.out.println(data);
         return "board/detail";
     }
 }
