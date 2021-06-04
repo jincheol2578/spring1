@@ -8,7 +8,6 @@ function regCmt() {
 	var param = {
 		iboard: cmtListElem.dataset.iboard,
 		cmt: cmtVal
-
 	};
 
 	regAjax(param);
@@ -17,7 +16,7 @@ function regCmt() {
 function regAjax(param) {
 	const init = {
 		method: 'POST',
-		body: new URLSearchParams(param)
+		body: JSON.stringify(param)
 	};
 
 	fetch('cmtInsSel', init)

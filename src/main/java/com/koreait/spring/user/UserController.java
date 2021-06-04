@@ -39,7 +39,6 @@ public class UserController {  // Controller에는 호출만
     @RequestMapping(value = "join", method = RequestMethod.POST)
     public String join(UserEntity param){
         service.join(param);
-        System.out.println("Entity" + param);
         return "redirect:/user/login";
     }
 

@@ -10,6 +10,7 @@
 </head>
 <body>
 <h1>리스트</h1>
+<div>${sessionScope.loginUser.unm}</div>
 <table>
     <tr>
         <td>번호</td>

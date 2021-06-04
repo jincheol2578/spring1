@@ -15,6 +15,16 @@
 <div>작성자 : ${requestScope.data.writerNm } | 작성일시 : ${requestScope.data.regdt }</div>
 <div><c:out value="${requestScope.data.ctnt }"/></div>
 
+<c:if test="${not empty sessionScope.loginUser}">
+    <div>
+        <form id="cmtFrm" action="">
+            <input type="text" id="cmt" placeholder="댓글">
+            <input type="button" value="댓글달기" onclick="regCmt();">
+        </form>
+    </div>
+</c:if>
+<div id="cmtList" data-login_user_pk="${sessionScope.loginUser.iuser}"
+     data-iboard="${param.iboard}"></div>
 <%--
 <c:if test="${not empty sessionScope.loginUser }">
     <div>

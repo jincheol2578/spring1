@@ -3,9 +3,14 @@ package com.koreait.spring.board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/board")
@@ -25,7 +30,16 @@ public class BoardController {
     public String detail(BoardDTO param, Model model) {
         BoardDomain data = service.selBoard(param);
         model.addAttribute("data", data);
-        System.out.println(data);
         return "board/detail";
+    }
+    @ResponseBody
+    @RequestMapping("/cmtInsSel")
+    public Map<String, Integer> cmtInsSel(@RequestBody BoardCmtEntity param){
+        Map<String, Integer> data = new HashMap<>();
+
+        List<String> list = new ArrayList();
+
+        data.put("result",1);
+        return data;
     }
 }
