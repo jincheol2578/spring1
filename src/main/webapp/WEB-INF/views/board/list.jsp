@@ -10,6 +10,10 @@
 </head>
 <body>
 <h1>리스트</h1>
+<div>
+    <span>로그인 아이디 : ${sessionScope.loginUser.uid}</span>
+    <span><a href="/user/profile">프로필</a></span>
+</div>
 <div>${sessionScope.loginUser.unm}</div>
 <table>
     <tr>

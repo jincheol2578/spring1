@@ -18,6 +18,7 @@
 
 <!--  정적 자원 매핑이라고 한다. 경로에 대한 Alias 같은역할 -->
     <mvc:resources mapping="/res/**" location="/res/" />
+    <mvc:resources mapping="/img/**" location="file:///D:/springImg/" />
 
 <!-- 경로 안에있는 자바클래스 파일에 Annotation이 있으면 Bean생성 -->
     <context:component-scan base-package="com.koreait.spring" />
@@ -29,5 +30,6 @@
     </bean>
 
     <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+
 
 </beans>
