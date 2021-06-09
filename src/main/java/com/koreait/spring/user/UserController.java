@@ -3,11 +3,11 @@ package com.koreait.spring.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/user")  // 1차 주소값
@@ -15,6 +15,8 @@ public class UserController {  // Controller에는 호출만
 
     @Autowired
     private UserService service;
+
+
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)  // 2차 주소값, GET 메소드는 Default
     public String login(Model model, @RequestParam(value = "err", defaultValue = "0") int err) {
@@ -44,6 +46,14 @@ public class UserController {  // Controller에는 호출만
     public String join(UserEntity param) {
         service.join(param);
         return "redirect:/user/login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession hs, HttpServletRequest req){
+        hs.invalidate();
+        String referer = req.getHeader("Referer");
+        return "redirect:" + referer;
+        // 로그아웃시 전 페이지로 이동
     }
 
     @RequestMapping(value = "/profile")

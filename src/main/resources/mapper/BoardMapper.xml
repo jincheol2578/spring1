@@ -20,4 +20,11 @@
         WHERE A.iboard = #{iboard}
     </select>
 
+    <insert id="insBoard" >
+        INSERT INTO t_board
+        (title,ctnt,iuser)
+        VALUES
+        (#{title}, #{ctnt}, #{iuser})
+    </insert>
+
 </mapper>

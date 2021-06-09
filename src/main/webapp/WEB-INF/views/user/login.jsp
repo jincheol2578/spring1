@@ -1,9 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+
+
     <div>로그인</div>
     <div>${requestScope.errMsg }</div>
     <form action="login" method="post">
@@ -21,5 +18,3 @@
     <div>
         <a href="join">join</a>
     </div>
-</body>
-</html>

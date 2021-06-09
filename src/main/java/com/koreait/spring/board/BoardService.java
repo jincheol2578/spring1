@@ -23,6 +23,20 @@ public class BoardService {
     }
     public BoardDomain selBoard(BoardDTO param) { return mapper.selBoard(param); }
 
+
+    public int writeMod(BoardEntity param){
+        UserEntity loginUser = (UserEntity) session.getAttribute("loginUser");
+        param.setIuser(loginUser.getIuser());
+
+            if(param.getIboard() == 0){
+
+                return 0;
+            }
+
+            return 0;
+    }
+
+
     public int insBoardCmt(BoardCmtEntity param) {
         UserEntity loginUser = (UserEntity) session.getAttribute("loginUser");
         param.setIuser(loginUser.getIuser());

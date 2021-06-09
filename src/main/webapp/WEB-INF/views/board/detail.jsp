@@ -1,14 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>${requestScope.boardDomain.title}</title>
-    <link rel="stylesheet" href="/res/css/common.css">
-    <link rel="stylesheet" href="/res/css/boardDetail.css">
-    <script defer src="/res/js/boardDetail.js"></script>
-</head>
-<body>
+
 <div><a href="#" onclick="goBack();">돌아가기</a></div>
 <h1>${requestScope.boardDomain.title}</h1>
 <div>글번호 : ${requestScope.boardDomain.iboard}</div>
@@ -37,16 +29,3 @@
         <input type="button" value="취소" onclick="closeModModal();">
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>
