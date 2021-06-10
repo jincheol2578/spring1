@@ -1,15 +1,15 @@
 @charset "UTF-8";
 html, body, ul{	margin: 0;	padding: 0;}
 
-.nav {height: 50px; background-color: skyblue;}
+header {height: 50px; background-color: skyblue;}
 
-.nav ul {
+header ul {
 	display: flex;
 	height:100%;
 	align-content: center;
 	list-style: none;
 }
-.nav ul li {margin-left: 20px;}
+header ul li {margin-left: 20px;}
 section { padding-left: 40px; padding-right: 40px; }
 .colorRed{color: red;}
 .displayNone{ display: none !important;}
@@ -17,3 +17,7 @@ section { padding-left: 40px; padding-right: 40px; }
 li{
 	list-style: none;
 }
+.fa-heart{
+	color: red;
+}
+.pointer { cursor: pointer}

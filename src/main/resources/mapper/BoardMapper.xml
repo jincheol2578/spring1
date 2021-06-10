@@ -20,11 +20,22 @@
         WHERE A.iboard = #{iboard}
     </select>
 
-    <insert id="insBoard" >
+    <insert id="insBoard" useGeneratedKeys="true" keyProperty="iboard">
         INSERT INTO t_board
-        (title,ctnt,iuser)
+            ( title, ctnt, iuser )
         VALUES
-        (#{title}, #{ctnt}, #{iuser})
+            ( #{title}, #{ctnt}, #{iuser} )
     </insert>
+
+    <update id="updBoard">
+        UPDATE FROM t_board
+        SET title = #{title}, ctnt = #{ctnt}
+        WHERE iboard = #{iboard} AND iuser = #{iuser}
+    </update>
+
+    <delete id="delBoard">
+        DELETE FROM t_board
+        WHERE iboard = #{iboard} AND iuser = #{iuser}
+    </delete>
 
 </mapper>

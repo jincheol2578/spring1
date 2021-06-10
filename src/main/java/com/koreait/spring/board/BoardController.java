@@ -12,6 +12,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
+
     @Autowired
     private BoardService service;
 
@@ -31,11 +32,21 @@ public class BoardController {
     }
 
     @GetMapping("/writeMod")
-    public void writeMod(){}
+    public void writeMod(BoardDTO param, Model model) {
+        if(param.getIboard() > 0) {
+            model.addAttribute("data",service.selBoard(param));
+        }
+    }
+
+    @GetMapping("/delBoard")
+    public String delBoard(BoardEntity param){
+        service.delBoard(param);
+        return "redirect:list";
+    }
 
     @PostMapping("/writeMod")
-    public String writeMod(BoardEntity param){
-        int iboard = service.writeMod(param);
+    public String writeModProc(BoardEntity param) {
+        int iboard = service.insBoard(param);
         return "redirect:detail?iboard=" + iboard;
     }
 
