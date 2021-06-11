@@ -22,8 +22,14 @@ public class BoardService {
     @Autowired
     private HttpSession session;
 
-    public List<BoardDomain> selBoardList(){
-        return mapper.selBoardList();
+    public List<BoardDomain> selBoardList(BoardDTO param){
+        param.setIuser(myUtils.getLoginUserPk());
+        final int RECORD_CNT = 5;
+        int startIdx = (param.getPage() - 1) * RECORD_CNT;
+
+        param.setStartIdx(startIdx);
+        param.setRecordCnt(RECORD_CNT);
+        return mapper.selBoardList(param);
     }
     public BoardDomain selBoard(BoardDTO param) { return mapper.selBoard(param); }
 
@@ -68,7 +74,8 @@ public class BoardService {
     }
 
 
-
-
+    public int selMaxPageVal() {
+        return 0;
+    }
 }
 

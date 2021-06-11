@@ -10,7 +10,15 @@
         INNER JOIN t_user AS B
         ON A.iuser = B.iuser
         ORDER BY A.iboard DESC
+        <if test="recordCnt > 0">
+            LIMIT #{startIdx}, #{recordCnt}
+        </if>
     </select>
+
+    <select id="selMaxPageVal" resultType="_int">
+        SELECT CEIL(COUNT(iboard) / 5) FROM t_board
+    </select>
+
     <select id="selBoard" resultType="BoardDomain">
         SELECT A.iboard, A.title, A.iuser, A.regdt, A.ctnt,
                B.unm AS writerNm

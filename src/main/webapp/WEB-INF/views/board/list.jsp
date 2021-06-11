@@ -45,4 +45,10 @@
             <td>${item.regdt }</td>
         </tr>
     </c:forEach>
+
+    <div>
+        <c:forEach begin="1" end="${requestScope.maxPageVal}" var="page">
+            <a><a href="list?page=${page}">${page}</a> </span>
+        </c:forEach>
+    </div>
 </table>

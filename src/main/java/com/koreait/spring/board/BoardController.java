@@ -17,9 +17,9 @@ public class BoardController {
     private BoardService service;
 
     @RequestMapping("/list")
-    public String list(Model model) {
-        List<BoardDomain> list = service.selBoardList();
-        model.addAttribute("list", list);
+    public String list(Model model, BoardDTO param) {
+        model.addAttribute("list", service.selBoardList(param));
+        model.addAttribute("maxPageVal", service.selMaxPageVal());
         return "board/list";
     }
 

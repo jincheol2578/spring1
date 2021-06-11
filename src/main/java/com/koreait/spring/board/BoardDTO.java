@@ -11,4 +11,7 @@ public class BoardDTO {  // Parameter용
     private int recordCnt;
     private int searchType;
     private String searchText;
+    private int page = 1;
+    private int iuser;
+
 }
